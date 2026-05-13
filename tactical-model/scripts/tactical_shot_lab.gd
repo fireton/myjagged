@@ -148,6 +148,9 @@ func _reload_formula_config_if_changed() -> void:
 
 
 func _resolve_formula_config_path() -> String:
+	if OS.has_feature("editor"):
+		return INTERNAL_FORMULA_CONFIG_PATH
+
 	var executable_dir := OS.get_executable_path().get_base_dir()
 	if not executable_dir.is_empty():
 		for config_dir in _external_config_dirs(executable_dir):
@@ -161,10 +164,6 @@ func _resolve_formula_config_path() -> String:
 func _external_config_dirs(executable_dir: String) -> Array[String]:
 	var dirs: Array[String] = []
 	_append_unique_dir(dirs, executable_dir)
-
-	var working_dir := OS.get_environment("PWD")
-	if not working_dir.is_empty():
-		_append_unique_dir(dirs, working_dir)
 
 	var app_marker := ".app/Contents/MacOS"
 	var app_marker_index := executable_dir.find(app_marker)

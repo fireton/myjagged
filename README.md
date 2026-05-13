@@ -52,6 +52,10 @@ tactical-lab-macos/
   formula_config.yaml
 ```
 
+When running from the Godot editor, the app uses the internal project config at `tactical-model/config/formula_config.yaml`.
+
+When running an exported build, the app first looks for the external file next to the executable or `.app` bundle. If it is missing, the app falls back to the internal config bundled in the project.
+
 The app watches the active config file and reloads it while running.
 
 After exporting, copy the current config to release folders with:
@@ -80,4 +84,4 @@ Exports are local artifacts and should not be committed:
 release/
 ```
 
-The repository intentionally keeps the internal default config in `tactical-model/config/`, while local external tuning copies are ignored.
+The repository intentionally keeps the internal default config in `tactical-model/config/`. Exported copies of the config live under `release/`, which is ignored.

@@ -1,12 +1,18 @@
 # External formula config
 
-The exported build first looks for this file next to the executable or, on macOS, next to the `.app` bundle:
+When running from the Godot editor, the lab uses the internal project config:
+
+```text
+res://config/formula_config.yaml
+```
+
+Exported builds first look for this file next to the executable or, on macOS, next to the `.app` bundle:
 
 ```text
 formula_config.yaml
 ```
 
-If the external file exists, the lab uses it and hot-reloads it while running.
+If the external file exists, the exported lab uses it and hot-reloads it while running.
 
 If the external file does not exist, the lab falls back to the internal project default:
 
