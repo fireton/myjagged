@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# Godot editor/cache data
+.godot/
+**/.godot/
+*.tmp
+
+# Exported builds
+release/
+
+# Local external tuning files
+tactical-model/formula_config.yaml
+
+# Godot platform export scratch folders
+**/android/
